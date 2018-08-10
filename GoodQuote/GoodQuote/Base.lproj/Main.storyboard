@@ -631,6 +631,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="0.4941176471" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5JP-d7-N2P" firstAttribute="centerX" secondItem="vRm-Zf-pX3" secondAttribute="centerX" id="8l5-tZ-Dnz"/>
                             <constraint firstItem="uI5-s1-xrG" firstAttribute="top" secondItem="thF-hS-lNV" secondAttribute="bottom" constant="5" id="9jn-op-TY4"/>
@@ -659,13 +660,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="authorButton" destination="5JP-d7-N2P" id="xsh-dW-fn6"/>
-                        <outlet property="copButton" destination="HxU-bY-bLn" id="qi0-Xy-lvm"/>
-                        <outlet property="iconQuote" destination="thF-hS-lNV" id="xQz-Mq-u9q"/>
-                        <outlet property="nextButton" destination="3lW-PQ-N8L" id="WCl-xP-BUz"/>
-                        <outlet property="quoteText" destination="0F9-T1-dmN" id="tRB-6f-jzY"/>
+                        <outlet property="authorButton" destination="5JP-d7-N2P" id="CS0-Jm-2gH"/>
+                        <outlet property="copButton" destination="HxU-bY-bLn" id="VPD-MO-fFw"/>
+                        <outlet property="iconQuote" destination="thF-hS-lNV" id="GAn-H1-7Sv"/>
+                        <outlet property="nextButton" destination="3lW-PQ-N8L" id="ibE-tz-Del"/>
+                        <outlet property="quoteText" destination="0F9-T1-dmN" id="xBU-aT-o8J"/>
                         <outlet property="searchDisplayController" destination="Bxd-ZM-O2X" id="BfY-3z-Orl"/>
-                        <outlet property="titleQuoteText" destination="uI5-s1-xrG" id="aJJ-Sf-bAR"/>
+                        <outlet property="titleQuoteText" destination="uI5-s1-xrG" id="EFE-ab-XsE"/>
                         <segue destination="xrM-Px-4M0" kind="show" identifier="viewAuthor" id="aBs-eJ-F56"/>
                     </connections>
                 </viewController>
@@ -759,9 +760,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="authorImage" destination="tXy-RZ-zav" id="5NU-TH-SlQ"/>
-                                            <outlet property="authorName" destination="NJT-KH-qJg" id="hl4-4e-uBW"/>
-                                            <outlet property="quoteText" destination="dyY-Bd-ylY" id="AXD-0j-w1y"/>
+                                            <outlet property="authorImage" destination="tXy-RZ-zav" id="Z5R-hf-I8G"/>
+                                            <outlet property="authorName" destination="NJT-KH-qJg" id="Wfx-qa-DLp"/>
+                                            <outlet property="quoteText" destination="dyY-Bd-ylY" id="usQ-Qr-UeV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -870,6 +871,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="sNB-PQ-zen">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.4941176471" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Qz0-8X-IAx"/>
@@ -915,7 +917,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="didButtonSelected:" destination="xrM-Px-4M0" eventType="touchUpInside" id="VLV-li-wwI"/>
+                                            <action selector="seeQuotesAction:" destination="xrM-Px-4M0" eventType="touchUpInside" id="Zt4-je-07c"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -976,9 +978,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="authorBio" destination="tgw-QC-hP1" id="9XS-tL-Ajb"/>
-                        <outlet property="authorImg" destination="h9y-6A-gub" id="s4v-CJ-Keg"/>
-                        <outlet property="authorName" destination="Pdy-F3-uUl" id="3cT-u7-3nW"/>
+                        <outlet property="authorBio" destination="tgw-QC-hP1" id="MsK-ZS-cvG"/>
+                        <outlet property="authorImg" destination="h9y-6A-gub" id="ZeM-jF-GEj"/>
+                        <outlet property="authorName" destination="Pdy-F3-uUl" id="eye-Vg-dOT"/>
                         <outlet property="searchDisplayController" destination="Bxd-ZM-O2X" id="Gr1-fm-Bmw"/>
                         <segue destination="EZa-ad-4mw" kind="show" identifier="seeAuthorQuotes" id="NEI-EC-KdP"/>
                     </connections>
