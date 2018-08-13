@@ -10,16 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+	//Outlets
+	@IBOutlet weak var randomQuoteButton: UIButton!
+	@IBOutlet weak var findQuoteButton: UIButton!
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		findQuoteButton.layer.borderWidth = 1.0
+		findQuoteButton.layer.borderColor = UIColor(red:1.00, green:0.49, blue:0.47, alpha:1.0).cgColor
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "randomQuote" {
+			let vc = segue.destination as! QuoteViewController
+			vc.senderIdentifier = "randomQuote"
+		}
+	}
 
-
+	
+	@IBAction func randomQuoteAction(_ sender: Any) {
+		performSegue(withIdentifier: "randomQuote", sender: self)
+	}
+	
+	
+	@IBAction func findQuoteAction(_ sender: Any) {
+		performSegue(withIdentifier: "allQuotes", sender: self)
+	}
 }
-
