@@ -122,7 +122,6 @@
 				BE466B5B211DAD7D00154F04 /* LaunchScreen.storyboard */,
 				BE466B5E211DAD7D00154F04 /* Info.plist */,
 				BE466B56211DAD7D00154F04 /* GoodQuote.xcdatamodeld */,
-				BE466B80211DC7FD00154F04 /* QuoteViewController.swift */,
 			);
 			path = GoodQuote;
 			sourceTree = "<group>";
@@ -151,6 +150,7 @@
 				BE466B51211DAD7D00154F04 /* ViewController.swift */,
 				BE466B8F211DD18F00154F04 /* AuthorViewController.swift */,
 				BE19E13F21220CBE00EEFF16 /* QuotesTableViewController.swift */,
+				BE466B80211DC7FD00154F04 /* QuoteViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

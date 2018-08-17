@@ -19,9 +19,9 @@ class QuotesTableViewController: UIViewController {
         super.viewDidLoad()
 
 		//Check if it is all quotes or just and author quotes
-		if let a = self.author {
-			self.quotes = Manager.quotes.filter { q in
-				return q.author.name == a.name
+		if let author = self.author {
+			self.quotes = Manager.quotes.filter { a in
+				return a.author.name == author.name
 			}
 		} else {
 			self.quotes = Manager.quotes
@@ -35,12 +35,11 @@ class QuotesTableViewController: UIViewController {
 	//Prepare Segue
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "viewQuote" {
-			let data = segue.destination as! QuoteViewController
-			let cell = sender as! QuotesViewCell
-			data.quote = cell.quote
+			let vc = segue.destination as! QuoteViewController
+			vc.quote = sender as! Quote
 			
 			if self.author != nil {
-				data.senderIdentifier = "allAuthorQuotes"
+				vc.senderIdentifier = "allAuthorQuotes"
 			}
 		}
 	}
@@ -49,7 +48,7 @@ class QuotesTableViewController: UIViewController {
 
 extension QuotesTableViewController : UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return self.quotes.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,7 +68,7 @@ extension QuotesTableViewController : UITableViewDelegate, UITableViewDataSource
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		let cell = tableView.cellForRow(at: indexPath)
-		performSegue(withIdentifier: "viewQuote", sender: cell)
+		let selectedQuote = self.quotes[indexPath.row]
+		performSegue(withIdentifier: "viewQuote", sender: selectedQuote)
 	}
 }

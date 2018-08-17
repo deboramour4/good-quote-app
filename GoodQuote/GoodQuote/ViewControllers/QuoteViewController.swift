@@ -12,8 +12,8 @@ class QuoteViewController: UIViewController {
     
     //Outlets
     @IBOutlet weak var quoteText: UITextView!
-    @IBOutlet weak var authorButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
+	@IBOutlet weak var authorButton: UIButton!
+	@IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var iconQuote: UILabel!
     @IBOutlet weak var titleQuoteText: UILabel!
     
@@ -31,12 +31,23 @@ class QuoteViewController: UIViewController {
         
         //Custom buttom
         authorButton.layer.borderWidth = 1.0
-        authorButton.layer.borderColor = UIColor(red: 1.0, green: 0.49, blue: 0.47, alpha: 1.0).cgColor
+		authorButton.layer.borderColor = UIColor(red: 1.0, green: 0.49, blue: 0.47, alpha: 1.0).cgColor
         
         //Set quote data
         quoteText.text = "\"\(self.quote.text)\""
         iconQuote.text = Manager.randomSimbol()
+		authorButton.setTitle(self.quote.author.name, for: .normal)
+		
         titleQuoteText.text = Manager.randomTitle()
+		
+		if senderIdentifier != "randomQuote"{
+			self.nextButton.isHidden = true
+		}
+		
+		if senderIdentifier == "allAuthorQuotes" {
+			self.authorButton.isEnabled = false
+			self.authorButton.layer.borderWidth = 0.0
+		}
         
     }
 	
@@ -53,7 +64,7 @@ class QuoteViewController: UIViewController {
     }
 	
 	@IBAction func copyAction(_ sender: Any) {
-		UIPasteboard.general.string = "\"\(self.quote.text)\" -%@ #GoodQuoteApp Download on AppStore <3"
+		UIPasteboard.general.string = "\"\(self.quote.text)\" - #GoodQuoteApp Download on AppStore <3"
 		
 		let alertCopy = UIAlertController(title: nil , message: "Quote copied!", preferredStyle: .alert)
 		self.present(alertCopy, animated: true, completion: nil)

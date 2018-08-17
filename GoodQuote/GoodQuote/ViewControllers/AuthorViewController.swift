@@ -33,8 +33,15 @@ class AuthorViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "seeAuthorQuotes" {
+			let vc = segue.destination as! QuotesTableViewController
+			vc.author = self.author
+		}
+	}
+	
     //Go to author quotes
     @IBAction func seeQuotesAction(_ sender: Any) {
-        performSegue(withIdentifier: "seeAuthorQuotes", sender: sender)
+        performSegue(withIdentifier: "seeAuthorQuotes", sender: nil)
     }
 }
