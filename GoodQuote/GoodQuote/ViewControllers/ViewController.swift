@@ -16,9 +16,6 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		findQuoteButton.layer.borderWidth = 1.0
-		findQuoteButton.layer.borderColor = UIColor(red:1.00, green:0.49, blue:0.47, alpha:1.0).cgColor
     }
 
     override func didReceiveMemoryWarning() {

@@ -27,35 +27,18 @@
                             <stackView verifyAmbiguity="ignoreSizes" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rTN-tI-ZZY">
                                 <rect key="frame" x="87" y="273" width="200" height="75"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25D-m5-Lva">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25D-m5-Lva" customClass="PrimaryButton" customModule="GoodQuote" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="titleEdgeInsets" minX="5" minY="15" maxX="5" maxY="15"/>
                                         <state key="normal" title="Give me a quote"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="randomQuoteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7aJ-AC-6UV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDO-uF-nY0">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDO-uF-nY0" customClass="SecondaryButton" customModule="GoodQuote" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="45" width="200" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="titleEdgeInsets" minX="5" minY="15" maxX="5" maxY="15"/>
-                                        <state key="normal" title="Find a quote">
-                                            <color key="titleColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <state key="normal" title="Find a quote"/>
                                         <connections>
                                             <action selector="findQuoteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ky4-0R-CCs"/>
                                         </connections>
@@ -79,9 +62,6 @@
                         <barButtonItem key="backBarButtonItem" title="Home" id="f8a-FX-ouS">
                             <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="dOb-La-Oa1">
-                            <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="findQuoteButton" destination="TDO-uF-nY0" id="936-2x-QMa"/>
@@ -99,107 +79,106 @@
             <objects>
                 <viewController id="ORz-qJ-Sgs" customClass="QuoteViewController" customModule="GoodQuote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="44U-RL-P7q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&amp;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thF-hS-lNV">
-                                <rect key="frame" x="129" y="90" width="118" height="128"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qan-4o-jFJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCT-Qd-8vY">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="383.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gxf-SM-Sjo">
+                                                <rect key="frame" x="32" y="16" width="311" height="367.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&amp;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thF-hS-lNV">
+                                                        <rect key="frame" x="96.5" y="0.0" width="118" height="166.5"/>
+                                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="144"/>
+                                                        <color key="textColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI5-s1-xrG">
+                                                        <rect key="frame" x="95.5" y="176.5" width="120.5" height="31.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Quote Title">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="24" name="Futura-Medium"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JP-d7-N2P" customClass="SecondaryButton" customModule="GoodQuote" customModuleProvider="target">
+                                                        <rect key="frame" x="105.5" y="218" width="100" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="qGf-rQ-Do9"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Author name"/>
+                                                        <connections>
+                                                            <action selector="authorAction:" destination="ORz-qJ-Sgs" eventType="touchUpInside" id="XQn-fy-fpE"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jP-Ae-nku">
+                                                        <rect key="frame" x="0.0" y="258" width="311" height="109.5"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment>
+                                                                <string key="content">“Here you have a good quote, here you have a good quote, here you have a good quote, here you have a good quote, here you have a good quote, here you have a good quote,”.</string>
+                                                                <attributes>
+                                                                    <font key="NSFont" size="16" name="AvenirNext-Regular"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="5JP-d7-N2P" firstAttribute="centerX" secondItem="gxf-SM-Sjo" secondAttribute="centerX" id="Ur5-tF-oM3"/>
+                                                    <constraint firstItem="5JP-d7-N2P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gxf-SM-Sjo" secondAttribute="leading" constant="30" id="rpO-fc-WdX"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="gxf-SM-Sjo" secondAttribute="bottom" id="8rE-og-udu"/>
+                                            <constraint firstItem="gxf-SM-Sjo" firstAttribute="leading" secondItem="bCT-Qd-8vY" secondAttribute="leading" constant="32" id="DxG-BK-2XU"/>
+                                            <constraint firstAttribute="trailing" secondItem="gxf-SM-Sjo" secondAttribute="trailing" constant="32" id="FYm-Zc-gdz"/>
+                                            <constraint firstItem="gxf-SM-Sjo" firstAttribute="top" secondItem="bCT-Qd-8vY" secondAttribute="top" constant="16" id="Vww-Wv-Zwk"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="vr9-ll-Mk8"/>
+                                    <constraint firstItem="bCT-Qd-8vY" firstAttribute="leading" secondItem="qan-4o-jFJ" secondAttribute="leading" id="7A5-ea-qSh"/>
+                                    <constraint firstAttribute="bottom" secondItem="bCT-Qd-8vY" secondAttribute="bottom" id="RT9-u7-qgd"/>
+                                    <constraint firstAttribute="trailing" secondItem="bCT-Qd-8vY" secondAttribute="trailing" id="iBK-Sg-27X"/>
+                                    <constraint firstItem="bCT-Qd-8vY" firstAttribute="top" secondItem="qan-4o-jFJ" secondAttribute="top" id="vVL-Hd-Q1c"/>
+                                    <constraint firstItem="bCT-Qd-8vY" firstAttribute="centerX" secondItem="qan-4o-jFJ" secondAttribute="centerX" id="zme-GZ-877"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="144"/>
-                                <color key="textColor" red="1" green="0.49411764705882355" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uI5-s1-xrG">
-                                <rect key="frame" x="127" y="223" width="121" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="RN0-G5-eFC"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Quote Title">
-                                        <attributes>
-                                            <font key="NSFont" size="24" name="Futura-Medium"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JP-d7-N2P">
-                                <rect key="frame" x="122.5" y="409" width="130" height="32"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="9hI-MI-ppE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="titleEdgeInsets" minX="5" minY="15" maxX="0.0" maxY="15"/>
-                                <state key="normal" title="Author Name">
-                                    <color key="titleColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="authorAction:" destination="ORz-qJ-Sgs" eventType="touchUpInside" id="XQn-fy-fpE"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F9-T1-dmN">
-                                <rect key="frame" x="30" y="264" width="315" height="130"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="sZU-Xl-YyM"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">“Here you have a good quote, here you have a good quote, here you have a good quote, here you have a good quote, here you have a good quote, here you have a good quote,”.</string>
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="AvenirNext-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lW-PQ-N8L">
-                                <rect key="frame" x="123" y="456" width="130" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="Zdh-fm-ocb"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="titleEdgeInsets" minX="5" minY="15" maxX="5" maxY="15"/>
-                                <state key="normal" title="Next"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="nextAction:" destination="ORz-qJ-Sgs" eventType="touchUpInside" id="KdR-uG-dgL"/>
-                                </connections>
-                            </button>
+                            </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jd-L3-aaC">
+                                <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Previous" id="CIg-MJ-DVh"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="28E-EJ-aPM"/>
+                                    <barButtonItem title="Next" id="wLJ-2u-gQy">
+                                        <connections>
+                                            <action selector="nextAction:" destination="ORz-qJ-Sgs" id="zCQ-Cp-l9E"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="1" green="0.4941176471" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5JP-d7-N2P" firstAttribute="centerX" secondItem="vRm-Zf-pX3" secondAttribute="centerX" id="8l5-tZ-Dnz"/>
-                            <constraint firstItem="uI5-s1-xrG" firstAttribute="top" secondItem="thF-hS-lNV" secondAttribute="bottom" constant="5" id="9jn-op-TY4"/>
-                            <constraint firstItem="0F9-T1-dmN" firstAttribute="centerX" secondItem="vRm-Zf-pX3" secondAttribute="centerX" id="RMc-fG-Sus"/>
-                            <constraint firstItem="0F9-T1-dmN" firstAttribute="leading" secondItem="vRm-Zf-pX3" secondAttribute="leading" constant="30" id="S6X-Mb-Xbi"/>
-                            <constraint firstItem="vRm-Zf-pX3" firstAttribute="trailing" secondItem="0F9-T1-dmN" secondAttribute="trailing" constant="30" id="UoI-oy-rab"/>
-                            <constraint firstItem="thF-hS-lNV" firstAttribute="centerX" secondItem="vRm-Zf-pX3" secondAttribute="centerX" id="ZBf-mD-q3V"/>
-                            <constraint firstItem="uI5-s1-xrG" firstAttribute="centerX" secondItem="vRm-Zf-pX3" secondAttribute="centerX" id="fGB-Za-RDu"/>
-                            <constraint firstItem="3lW-PQ-N8L" firstAttribute="top" secondItem="5JP-d7-N2P" secondAttribute="bottom" constant="15" id="hWz-UO-rN8"/>
-                            <constraint firstItem="0F9-T1-dmN" firstAttribute="top" secondItem="uI5-s1-xrG" secondAttribute="bottom" constant="10" id="meg-7N-1ax"/>
-                            <constraint firstItem="thF-hS-lNV" firstAttribute="top" secondItem="vRm-Zf-pX3" secondAttribute="top" constant="70" id="v6E-DY-KaW"/>
-                            <constraint firstItem="3lW-PQ-N8L" firstAttribute="centerX" secondItem="vRm-Zf-pX3" secondAttribute="centerX" id="xv3-sy-83J"/>
-                            <constraint firstItem="5JP-d7-N2P" firstAttribute="top" secondItem="0F9-T1-dmN" secondAttribute="bottom" constant="15" id="zLw-Yc-0mZ"/>
+                            <constraint firstItem="8jd-L3-aaC" firstAttribute="bottom" secondItem="vRm-Zf-pX3" secondAttribute="bottom" id="J0w-Hh-LtD"/>
+                            <constraint firstItem="8jd-L3-aaC" firstAttribute="leading" secondItem="vRm-Zf-pX3" secondAttribute="leading" id="VFa-ib-DiD"/>
+                            <constraint firstItem="8jd-L3-aaC" firstAttribute="top" secondItem="qan-4o-jFJ" secondAttribute="bottom" id="bO9-Ec-7EA"/>
+                            <constraint firstItem="qan-4o-jFJ" firstAttribute="trailing" secondItem="vRm-Zf-pX3" secondAttribute="trailing" id="c1Y-6b-bof"/>
+                            <constraint firstItem="qan-4o-jFJ" firstAttribute="top" secondItem="vRm-Zf-pX3" secondAttribute="top" id="dee-hV-5se"/>
+                            <constraint firstItem="8jd-L3-aaC" firstAttribute="trailing" secondItem="vRm-Zf-pX3" secondAttribute="trailing" id="iOi-Rx-tF3"/>
+                            <constraint firstItem="qan-4o-jFJ" firstAttribute="leading" secondItem="vRm-Zf-pX3" secondAttribute="leading" id="trP-uN-pMa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vRm-Zf-pX3"/>
                     </view>
@@ -217,8 +196,7 @@
                     <connections>
                         <outlet property="authorButton" destination="5JP-d7-N2P" id="Ssb-jd-nWf"/>
                         <outlet property="iconQuote" destination="thF-hS-lNV" id="GAn-H1-7Sv"/>
-                        <outlet property="nextButton" destination="3lW-PQ-N8L" id="Hjp-5A-W64"/>
-                        <outlet property="quoteText" destination="0F9-T1-dmN" id="xBU-aT-o8J"/>
+                        <outlet property="quoteText" destination="3jP-Ae-nku" id="MMk-lO-33C"/>
                         <outlet property="searchDisplayController" destination="Bxd-ZM-O2X" id="BfY-3z-Orl"/>
                         <outlet property="titleQuoteText" destination="uI5-s1-xrG" id="EFE-ab-XsE"/>
                         <segue destination="xrM-Px-4M0" kind="show" identifier="viewAuthor" id="aBs-eJ-F56"/>
@@ -234,14 +212,14 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="135" y="931"/>
+            <point key="canvasLocation" x="133.59999999999999" y="975.56221889055485"/>
         </scene>
         <!--All Quotes-->
         <scene sceneID="nv7-fH-gpb">
             <objects>
                 <viewController id="EZa-ad-4mw" customClass="QuotesTableViewController" customModule="GoodQuote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5vp-Dn-YYz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EC7-mD-agw">
@@ -340,12 +318,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="EC7-mD-agw" id="nuW-ps-R3L"/>
                         <segue destination="ORz-qJ-Sgs" kind="show" identifier="viewQuote" id="Ujz-Li-cXP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTc-4R-vhh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="133"/>
+            <point key="canvasLocation" x="1254" y="142"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Kvl-w1-OQg">
@@ -416,7 +395,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2767" y="133"/>
+            <point key="canvasLocation" x="649" y="-658"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zok-hd-eoj">
@@ -440,11 +419,11 @@
             <objects>
                 <viewController id="xrM-Px-4M0" customClass="AuthorViewController" customModule="GoodQuote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BSd-Ob-aDJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-F3-uUl">
-                                <rect key="frame" x="108" y="233" width="159" height="31.5"/>
+                                <rect key="frame" x="108" y="213" width="159" height="31.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Grace Hopper">
                                         <attributes>
@@ -456,20 +435,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView verifyAmbiguity="ignoreSizes" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GZE-2F-4FQ">
-                                <rect key="frame" x="130" y="459.5" width="115" height="30"/>
+                                <rect key="frame" x="130" y="439.5" width="115" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5r-1k-v66">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5r-1k-v66" customClass="PrimaryButton" customModule="GoodQuote" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="titleEdgeInsets" minX="5" minY="15" maxX="5" maxY="15"/>
                                         <state key="normal" title="See quotes"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="seeQuotesAction:" destination="xrM-Px-4M0" eventType="touchUpInside" id="Zt4-je-07c"/>
                                         </connections>
@@ -480,7 +452,7 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="h9y-6A-gub">
-                                <rect key="frame" x="123.5" y="90" width="128" height="128"/>
+                                <rect key="frame" x="123.5" y="70" width="128" height="128"/>
                                 <color key="backgroundColor" red="0.8893057432" green="0.87691056030000003" blue="0.89484850890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="8NY-dN-kyw"/>
@@ -494,7 +466,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgw-QC-hP1">
-                                <rect key="frame" x="30" y="279.5" width="315" height="165"/>
+                                <rect key="frame" x="30" y="259.5" width="315" height="165"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="165" id="Qtx-2v-z6b"/>
@@ -549,15 +521,14 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="940" y="931"/>
+            <point key="canvasLocation" x="1207" y="954"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultImage" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aBs-eJ-F56"/>
-        <segue reference="NEI-EC-KdP"/>
-        <segue reference="Ujz-Li-cXP"/>
+        <segue reference="4b7-yt-krq"/>
+        <segue reference="c59-Lb-Qkv"/>
     </inferredMetricsTieBreakers>
 </document>

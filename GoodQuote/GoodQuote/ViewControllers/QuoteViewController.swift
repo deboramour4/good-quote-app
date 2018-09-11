@@ -11,7 +11,7 @@ import UIKit
 class QuoteViewController: UIViewController {
     
     //Outlets
-    @IBOutlet weak var quoteText: UITextView!
+    @IBOutlet weak var quoteText: UILabel!
 	@IBOutlet weak var authorButton: UIButton!
 	@IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var iconQuote: UILabel!
@@ -29,10 +29,6 @@ class QuoteViewController: UIViewController {
             self.quote = Manager.randomQuote()
         }
         
-        //Custom buttom
-        authorButton.layer.borderWidth = 1.0
-		authorButton.layer.borderColor = UIColor(red: 1.0, green: 0.49, blue: 0.47, alpha: 1.0).cgColor
-        
         //Set quote data
         quoteText.text = "\"\(self.quote.text)\""
         iconQuote.text = Manager.randomSimbol()
@@ -41,7 +37,7 @@ class QuoteViewController: UIViewController {
         titleQuoteText.text = Manager.randomTitle()
 		
 		if senderIdentifier != "randomQuote"{
-			self.nextButton.isHidden = true
+			//self.nextButton.isHidden = true
 		}
 		
 		if senderIdentifier == "allAuthorQuotes" {

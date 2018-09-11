@@ -22,6 +22,8 @@
 		BE466B89211DCB3700154F04 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE466B88211DCB3700154F04 /* Manager.swift */; };
 		BE466B8D211DD0BB00154F04 /* QuotesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE466B8B211DD0BB00154F04 /* QuotesViewCell.swift */; };
 		BE466B90211DD18F00154F04 /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE466B8F211DD18F00154F04 /* AuthorViewController.swift */; };
+		BE6DC291212DA219003E531E /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DC290212DA219003E531E /* PrimaryButton.swift */; };
+		BE6DC293212DA257003E531E /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DC292212DA257003E531E /* SecondaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		BE466B88211DCB3700154F04 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		BE466B8B211DD0BB00154F04 /* QuotesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewCell.swift; sourceTree = "<group>"; };
 		BE466B8F211DD18F00154F04 /* AuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
+		BE6DC290212DA219003E531E /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		BE6DC292212DA257003E531E /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		BE466B4E211DAD7D00154F04 /* GoodQuote */ = {
 			isa = PBXGroup;
 			children = (
+				BE6DC28F212DA1C9003E531E /* View */,
 				BE466B8A211DD08200154F04 /* Cells */,
 				BE466B83211DC9C300154F04 /* Model */,
 				BE466B82211DC9B600154F04 /* ViewControllers */,
@@ -171,6 +176,15 @@
 				BE466B8B211DD0BB00154F04 /* QuotesViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BE6DC28F212DA1C9003E531E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE6DC290212DA219003E531E /* PrimaryButton.swift */,
+				BE6DC292212DA257003E531E /* SecondaryButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +321,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6DC293212DA257003E531E /* SecondaryButton.swift in Sources */,
 				BE466B87211DCA6800154F04 /* Author.swift in Sources */,
+				BE6DC291212DA219003E531E /* PrimaryButton.swift in Sources */,
 				BE466B52211DAD7D00154F04 /* ViewController.swift in Sources */,
 				BE466B81211DC7FD00154F04 /* QuoteViewController.swift in Sources */,
 				BE466B8D211DD0BB00154F04 /* QuotesViewCell.swift in Sources */,
@@ -483,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JP3JNAQ57T;
 				INFOPLIST_FILE = GoodQuote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ADA.GoodQuote;
@@ -497,6 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JP3JNAQ57T;
 				INFOPLIST_FILE = GoodQuote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ADA.GoodQuote;

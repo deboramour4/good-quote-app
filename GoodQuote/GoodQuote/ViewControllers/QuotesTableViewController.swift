@@ -14,6 +14,8 @@ class QuotesTableViewController: UIViewController {
 	//Variables
 	var author : Author?
 	var quotes : [Quote] = []
+	@IBOutlet weak var tableView: UITableView!
+	let searchController = UISearchController(searchResultsController: nil)
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,20 @@ class QuotesTableViewController: UIViewController {
 			}
 		} else {
 			self.quotes = Manager.quotes
+			searchController.searchBar.scopeButtonTitles = ["Quotes", "By Author"]
 		}
+		
+		// Setup the Search Controller
+		searchController.searchResultsUpdater = self
+		searchController.obscuresBackgroundDuringPresentation = false
+		searchController.searchBar.placeholder = "Search Quotes"
+		navigationItem.searchController = searchController
+		definesPresentationContext = true
+		extendedLayoutIncludesOpaqueBars = true
+		searchController.delegate = self
+		searchController.searchBar.delegate = self
+		searchController.searchBar.tintColor = UIColor(named: "primary")
+		
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +59,26 @@ class QuotesTableViewController: UIViewController {
 		}
 	}
 
+	func filterContentForSearchText(_ searchText: String, scope: String = "Quotes") {
+		searchController.searchBar.placeholder = "Search \(scope)"
+		
+		quotes = Manager.quotes.filter({( quote : Quote) -> Bool in
+			if searchBarIsEmpty() {
+				return true
+			} else {
+				if scope == "Quotes" {
+					return quote.text.lowercased().contains(searchText.lowercased())
+				} else {
+					return quote.author.name.lowercased().contains(searchText.lowercased())
+				}
+			}
+		})
+		tableView.reloadData()
+	}
+	
+	func searchBarIsEmpty() -> Bool {
+		return searchController.searchBar.text?.isEmpty ?? true
+	}
 }
 
 extension QuotesTableViewController : UITableViewDelegate, UITableViewDataSource {
@@ -72,3 +107,22 @@ extension QuotesTableViewController : UITableViewDelegate, UITableViewDataSource
 		performSegue(withIdentifier: "viewQuote", sender: selectedQuote)
 	}
 }
+
+extension QuotesTableViewController: UISearchResultsUpdating {
+	func updateSearchResults(for searchController: UISearchController) {
+		let searchBar = searchController.searchBar
+		let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+		filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+	}
+}
+
+extension QuotesTableViewController: UISearchBarDelegate {
+	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+		filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+	}
+}
+
+extension QuotesTableViewController: UISearchControllerDelegate {
+
+}
+
